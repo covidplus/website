@@ -31,12 +31,3 @@ fetch('https://api.covid19api.com/summary')
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 document.getElementById("date").innerHTML = date;
-
-
-fetch('https://disease.sh/v3/covid-19/all')
-.then((response)=>{
-  return response.json();
-})
-.then((data)=>{
-  console.log(data)
-})
