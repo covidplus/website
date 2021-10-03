@@ -17,17 +17,13 @@ fetch('https://corona.lmao.ninja/v2/countries/Australia')
   document.getElementById("new-active").innerHTML = `+${comma(data.todayCases-data.todayRecovered-data.todayDeaths)}`;
 })
 
-fetch('https://api.covid19api.com/summary')
+fetch('https://disease.sh/v3/covid-19/all')
 .then((response)=>{
   return response.json();
 })
 .then((data)=>{
-  document.getElementById("w-cases").innerHTML = comma(data.Global.TotalConfirmed);
-  document.getElementById("w-new-cases").innerHTML = `+${comma(data.Global.NewConfirmed)}`;
-  document.getElementById("w-deaths").innerHTML = comma(data.Global.TotalDeaths);
-  document.getElementById("w-new-deaths").innerHTML = `+${comma(data.Global.NewDeaths)}`;
+  document.getElementById("w-cases").innerHTML = comma(data.cases);
+  document.getElementById("w-new-cases").innerHTML = `+${comma(data.todayCases)}`;
+  document.getElementById("w-deaths").innerHTML = comma(data.deaths);
+  document.getElementById("w-new-deaths").innerHTML = `+${comma(data.todayDeaths)}`;
 })
-
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-document.getElementById("date").innerHTML = date;
