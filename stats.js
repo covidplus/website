@@ -9,7 +9,7 @@ function formatDate(inputStr) {
        + date.getFullYear();
 }
 
-fetch('https://corona.lmao.ninja/v2/countries/Australia')
+fetch('https://disease.sh/v3/covid-19/countries/Australia?strict=true')
 .then((response)=>{
   return response.json();
 })
